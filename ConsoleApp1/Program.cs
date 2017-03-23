@@ -2,9 +2,9 @@
 
 namespace ConsoleApp1
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             //Calls Luis and create Luis Object
             LuisJSONModel LuisJson = utitlities.CallLuis();

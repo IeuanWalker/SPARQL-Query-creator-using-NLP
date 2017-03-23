@@ -38,5 +38,4 @@ namespace ConsoleApp1
         public IList<Intent> intents { get; set; }
         public IList<Entity> entities { get; set; }
     }
-
 }

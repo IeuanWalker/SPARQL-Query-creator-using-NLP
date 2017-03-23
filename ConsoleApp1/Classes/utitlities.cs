@@ -4,7 +4,7 @@ using System.IO;
 
 namespace ConsoleApp1
 {
-    abstract class utitlities
+    internal abstract class utitlities
     {
         public static LuisJSONModel CallLuis()
         {
@@ -15,6 +15,7 @@ namespace ConsoleApp1
 
             return data;
         }
+
         public static string ExtractLuisData(LuisJSONModel luisJson)
         {
             int numberOfItems = 0;
@@ -35,9 +36,11 @@ namespace ConsoleApp1
                             }
                         }
                         break;
+
                     case "genre":
                         genre = i.entity;
                         break;
+
                     case "builtin.datetime.date":
                         if (DateTime.TryParse(i.entity, out DateTime exactDateTime))
                         {
@@ -52,7 +55,8 @@ namespace ConsoleApp1
             }
             return CreateSparqlQuery(numberOfItems, genre, year, exactDate); ;
         }
-        static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
+
+        private static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
         {
             Console.WriteLine("Number of items: " + numberOfItems);
             Console.WriteLine("Genre: " + genre);
