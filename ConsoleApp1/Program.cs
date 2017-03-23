@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace ConsoleApp1
+namespace ConsoleVersion
 {
-    internal class Program
+    class Program
     {
-        private static void Main(string[] args)
+        static void Main(string[] args)
         {
             //Calls Luis and create Luis Object
             LuisJSONModel LuisJson = utitlities.CallLuis();

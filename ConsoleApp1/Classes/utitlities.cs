@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 
-namespace ConsoleApp1
+namespace ConsoleVersion
 {
-    internal abstract class utitlities
+    abstract class utitlities
     {
         public static LuisJSONModel CallLuis()
         {
@@ -56,7 +56,7 @@ namespace ConsoleApp1
             return CreateSparqlQuery(numberOfItems, genre, year, exactDate); ;
         }
 
-        private static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
+        static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
         {
             Console.WriteLine("Number of items: " + numberOfItems);
             Console.WriteLine("Genre: " + genre);
