@@ -1,2 +1,2 @@
 # Console---NPL-SPARQL-Creator
-Console version of my web application for my disseration
+This is a test version of my web applciaiton that i am building for my disseration. This applciation parses a JSON file (Luis.ai) to a object and then creates a custome SPARQL Query. 
