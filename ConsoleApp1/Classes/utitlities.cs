@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace ConsoleApp1
 {
@@ -12,7 +10,7 @@ namespace ConsoleApp1
         {
             LuisJSONModel data = new LuisJSONModel();
 
-            var file = Path.Combine(@"C:\Users\Ieuan\OneDrive\Documents\Work\Uni\Year 3\Dissertation\ASP\ConsoleApp1\ConsoleApp1\test2LuisData.json");
+            var file = Path.Combine(@"C:\Users\Ieuan\OneDrive\Documents\Work\Uni\Year 3\Dissertation\The program\ASP\ConsoleApp1\ConsoleApp1\test2LuisData.json");
             if (File.Exists(file))
             {
                 Console.WriteLine("Exists");
