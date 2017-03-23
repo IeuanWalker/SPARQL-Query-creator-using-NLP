@@ -11,19 +11,12 @@ namespace ConsoleApp1
             LuisJSONModel data = new LuisJSONModel();
 
             var file = Path.Combine(@"C:\Users\Ieuan\OneDrive\Documents\Work\Uni\Year 3\Dissertation\The program\ASP\ConsoleApp1\ConsoleApp1\test2LuisData.json");
-            if (File.Exists(file))
-            {
-                Console.WriteLine("Exists");
-
-                data = JsonConvert.DeserializeObject<LuisJSONModel>(File.ReadAllText(file));
-            }
+            data = JsonConvert.DeserializeObject<LuisJSONModel>(File.ReadAllText(file));
 
             return data;
         }
         public static string ExtractLuisData(LuisJSONModel luisJson)
         {
-            string query = "";
-
             int numberOfItems = 0;
             string genre = "";
             int year = 0;
@@ -61,7 +54,6 @@ namespace ConsoleApp1
         }
         static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
         {
-            Console.WriteLine();
             Console.WriteLine("Number of items: " + numberOfItems);
             Console.WriteLine("Genre: " + genre);
             Console.WriteLine("Year: " + year);
@@ -107,17 +99,5 @@ namespace ConsoleApp1
 
             return String.Format(queryPattern, genreMatch, dateMatch, limit);
         }
-
-        //public static SparqlResultSet QueryDbpedia(string query)
-        //{
-        //    //Define a remote endpoint
-        //    //Use the DBPedia SPARQL endpoint with the default Graph set to DBPedia
-        //    SparqlRemoteEndpoint endpoint = new SparqlRemoteEndpoint(new Uri("http://dbpedia.org/sparql"), "http://dbpedia.org");
-
-        //    //Make a SELECT query against the Endpoint
-        //    SparqlResultSet results = endpoint.QueryWithResultSet(query);
-
-        //    return results;
-        //}
     }
 }
