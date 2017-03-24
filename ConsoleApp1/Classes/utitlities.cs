@@ -53,7 +53,7 @@ namespace ConsoleVersion
                         break;
                 }
             }
-            return CreateSparqlQuery(numberOfItems, genre, year, exactDate); ;
+            return CreateSparqlQuery(numberOfItems, genre, year, exactDate);
         }
 
         static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
