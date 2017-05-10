@@ -4,13 +4,13 @@ using System.IO;
 
 namespace ConsoleVersion
 {
-    abstract class utitlities
+    internal abstract class utitlities
     {
         public static LuisJSONModel CallLuis()
         {
             LuisJSONModel data = new LuisJSONModel();
 
-            var file = Path.Combine(@"C:\Users\Ieuan\OneDrive\Documents\Work\Uni\Year 3\Dissertation\The program\ASP\ConsoleApp1\ConsoleApp1\test2LuisData.json");
+            var file = Path.Combine(@".\test2LuisData.json");
             data = JsonConvert.DeserializeObject<LuisJSONModel>(File.ReadAllText(file));
 
             return data;
@@ -56,7 +56,7 @@ namespace ConsoleVersion
             return CreateSparqlQuery(numberOfItems, genre, year, exactDate);
         }
 
-        static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
+        private static string CreateSparqlQuery(int numberOfItems, string genre, int year, string exactDate)
         {
             Console.WriteLine("Number of items: " + numberOfItems);
             Console.WriteLine("Genre: " + genre);
