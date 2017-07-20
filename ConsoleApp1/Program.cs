@@ -2,15 +2,15 @@
 
 namespace ConsoleVersion
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {
             //Calls Luis and create Luis Object
-            LuisJSONModel LuisJson = utitlities.CallLuis();
+            LuisJsonModel luisJson = Utitlities.CallLuis();
 
             //Returns SPARQL Query using the Luis object
-            string sparqlQuery = utitlities.ExtractLuisData(LuisJson);
+            string sparqlQuery = Utitlities.ExtractLuisData(luisJson);
             Console.WriteLine(sparqlQuery);
 
             Console.ReadLine();

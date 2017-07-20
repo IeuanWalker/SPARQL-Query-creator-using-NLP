@@ -4,31 +4,29 @@ using System.IO;
 
 namespace ConsoleVersion
 {
-    internal abstract class utitlities
+    public static class Utitlities
     {
-        public static LuisJSONModel CallLuis()
+        public static LuisJsonModel CallLuis()
         {
-            LuisJSONModel data = new LuisJSONModel();
-
             var file = Path.Combine(@".\test2LuisData.json");
-            data = JsonConvert.DeserializeObject<LuisJSONModel>(File.ReadAllText(file));
+            var data = JsonConvert.DeserializeObject<LuisJsonModel>(File.ReadAllText(file));
 
             return data;
         }
 
-        public static string ExtractLuisData(LuisJSONModel luisJson)
+        public static string ExtractLuisData(LuisJsonModel luisJson)
         {
             int numberOfItems = 0;
-            string genre = "";
+            string genre = String.Empty;
             int year = 0;
-            string exactDate = "";
+            string exactDate = String.Empty;
 
-            foreach (var i in luisJson.entities)
+            foreach (var i in luisJson.Entities)
             {
-                switch (i.type)
+                switch (i.Type)
                 {
                     case "builtin.number":
-                        if (int.TryParse(i.resolution.value, out int number))
+                        if (int.TryParse(i.Resolution.Value, out int number))
                         {
                             if (number < 1000)
                             {
@@ -68,11 +66,7 @@ namespace ConsoleVersion
             string genreMatch = !String.IsNullOrEmpty(genre.Trim()) ? String.Format("FILTER ( regex (str(?genre), '{0}', 'i'))", genre) : "";
             string dateMatch = "";
 
-            if (exactDate.Equals(DateTime.Now) && year.Equals(0))
-            {
-                //Means that both haven't been assigned
-            }
-            else if (!String.IsNullOrEmpty(exactDate.Trim()))
+            if (!String.IsNullOrEmpty(exactDate.Trim()))
             {
                 dateMatch = String.Format("FILTER ( regex (str(?releaseDate), '{0}', 'i'))", exactDate);
             }
